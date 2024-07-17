@@ -15,6 +15,9 @@ ans=input("Do you want to order anything else ?")
 def place_order(order):
     total=0
     for i in order:
+       if not(i in menu_list):
+           print("You entered item outside menu")
+           return
        total+=menu[i]
     return total
 
@@ -22,10 +25,9 @@ if ans.lower()=="yes":
     item=input("Enter the item you want to order : ")
     item=item.split(" ")
     order=order+item
-   
     print("Your total bill is : " ,place_order(order))
 else:
-     print("Your total bill is : " ,place_order(order))
+    print("Your total bill is : " ,place_order(order))
 
 
 
